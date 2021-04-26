@@ -101,11 +101,11 @@ ruleTester.run("sort", rule, {
       code:
         "<div className={classNames(`avatar font-semibold bg-${color} text-white rounded-full flex items-center justify-center`, className)} />",
       output:
-        "<div className={classNames(`flex items-center justify-center rounded-full bg-${color} text-white font-semibold avatar`, className)} />",
+        "<div className={classNames(`flex items-center justify-center font-semibold text-white bg-${color} rounded-full avatar`, className)} />",
       errors: [
         {
           message:
-            "should equal to 'flex items-center justify-center rounded-full bg-${color} text-white font-semibold avatar'",
+            "should equal to 'flex items-center justify-center font-semibold text-white bg-${color} rounded-full avatar'",
         },
       ],
     },
