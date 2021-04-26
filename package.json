@@ -8,11 +8,11 @@
     "test": "mocha tests/lib/rules/**/*.js"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
-    "eslint": "^6.1.0",
-    "eslint-config-eslint": "^5.0.1",
-    "eslint-plugin-node": "^9.1.0",
-    "mocha": "^6.2.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^8.3.2"
   },
   "peerDependencies": {
     "eslint": ">=2.0.0"
@@ -21,6 +21,6 @@
     "node": ">=4.0"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   }
 }
