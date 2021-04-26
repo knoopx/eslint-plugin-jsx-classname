@@ -1,26 +1,24 @@
-"use strict";
+const { RuleTester } = require("eslint")
 
-const rule = require("../../../lib/rules/no-duplicate");
-const tailwindcss = require("../../../lib/configs/tailwindcss");
-const { RuleTester } = require("eslint");
+const rule = require("../../../lib/rules/no-duplicate")
 
 RuleTester.setDefaultConfig({
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
     ecmaFeatures: {
-      jsx: true
-    }
-  }
-});
+      jsx: true,
+    },
+  },
+})
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester()
 
 ruleTester.run("no-duplicate", rule, {
   valid: [
     { code: '<div className="xxx" />' },
     { code: '<div className={"xxx"} />' },
-    { code: "<div className={`xxx`} />" }
+    { code: "<div className={`xxx`} />" },
   ],
   invalid: [
     {
@@ -28,27 +26,27 @@ ruleTester.run("no-duplicate", rule, {
       output: '<div className=" a b  " />',
       errors: [
         {
-          message: "should equal to ' a b  '"
-        }
-      ]
+          message: "should equal to ' a b  '",
+        },
+      ],
     },
     {
       code: '<div className={"a a "} />',
       output: '<div className={"a "} />',
       errors: [
         {
-          message: "should equal to 'a '"
-        }
-      ]
+          message: "should equal to 'a '",
+        },
+      ],
     },
     {
       code: "<div className={`a a `} />",
       output: "<div className={`a `} />",
       errors: [
         {
-          message: "should equal to 'a '"
-        }
-      ]
+          message: "should equal to 'a '",
+        },
+      ],
     },
     {
       options: [{ callee: ["classNames"] }],
@@ -56,9 +54,9 @@ ruleTester.run("no-duplicate", rule, {
       output: '<div className={classNames("a ")} />',
       errors: [
         {
-          message: "should equal to 'a '"
-        }
-      ]
-    }
-  ]
-});
+          message: "should equal to 'a '",
+        },
+      ],
+    },
+  ],
+})

@@ -1,22 +1,20 @@
-"use strict";
-
 const baseConfig = {
   parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
     ecmaFeatures: {
-      jsx: true
-    }
-  }
-};
+      jsx: true,
+    },
+  },
+}
 
 module.exports = {
   rules: {
     "no-duplicate": require("./lib/rules/no-duplicate"),
     "no-empty": require("./lib/rules/no-empty"),
     "no-whitespace": require("./lib/rules/no-whitespace"),
-    "sort": require("./lib/rules/sort")
+    "sort": require("./lib/rules/sort"),
   },
   configs: {
     recommended: {
@@ -25,8 +23,8 @@ module.exports = {
         "jsx-classname/no-duplicate": ["warn"],
         "jsx-classname/no-empty": ["warn"],
         "jsx-classname/no-whitespace": ["warn"],
-        "jsx-classname/sort": ["warn"]
-      }
+        "jsx-classname/sort": ["warn"],
+      },
     },
     tailwindcss: {
       ...baseConfig,
@@ -34,10 +32,10 @@ module.exports = {
         "jsx-classname/sort": [
           "warn",
           {
-            order: require("./lib/configs/tailwindcss")
-          }
-        ]
-      }
-    }
-  }
-};
+            order: require("./lib/configs/tailwindcss"),
+          },
+        ],
+      },
+    },
+  },
+}

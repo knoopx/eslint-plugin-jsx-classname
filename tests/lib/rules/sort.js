@@ -1,20 +1,21 @@
-"use strict";
+/* eslint-disable no-template-curly-in-string */
 
-const rule = require("../../../lib/rules/sort");
-const tailwindcss = require("../../../lib/configs/tailwindcss");
-const { RuleTester } = require("eslint");
+const { RuleTester } = require("eslint")
+
+const rule = require("../../../lib/rules/sort")
+const tailwindcss = require("../../../lib/configs/tailwindcss")
 
 RuleTester.setDefaultConfig({
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
     ecmaFeatures: {
-      jsx: true
-    }
-  }
-});
+      jsx: true,
+    },
+  },
+})
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester()
 
 ruleTester.run("sort", rule, {
   valid: [
@@ -22,8 +23,8 @@ ruleTester.run("sort", rule, {
     { code: '<div className=" a  b " />' },
     {
       code: '<div className="flex m-0" />',
-      options: [{ order: tailwindcss }]
-    }
+      options: [{ order: tailwindcss }],
+    },
   ],
   invalid: [
     {
@@ -31,36 +32,36 @@ ruleTester.run("sort", rule, {
       output: '<div className="a b" />',
       errors: [
         {
-          message: "should equal to 'a b'"
-        }
-      ]
+          message: "should equal to 'a b'",
+        },
+      ],
     },
     {
       code: '<div className=" b  a " />',
       output: '<div className=" a  b " />',
       errors: [
         {
-          message: "should equal to ' a  b '"
-        }
-      ]
+          message: "should equal to ' a  b '",
+        },
+      ],
     },
     {
       code: "<div className={`a c-${x} b`} />",
       output: "<div className={`a b c-${x}`} />",
       errors: [
         {
-          message: "should equal to 'a b c-${x}'"
-        }
-      ]
+          message: "should equal to 'a b c-${x}'",
+        },
+      ],
     },
     {
       code: '<div className={"b a"} />',
       output: '<div className={"a b"} />',
       errors: [
         {
-          message: "should equal to 'a b'"
-        }
-      ]
+          message: "should equal to 'a b'",
+        },
+      ],
     },
     {
       code: '<div className="text-red b m-0 a flex" />',
@@ -68,9 +69,9 @@ ruleTester.run("sort", rule, {
       options: [{ order: tailwindcss }],
       errors: [
         {
-          message: "should equal to 'flex m-0 text-red a b'"
-        }
-      ]
+          message: "should equal to 'flex m-0 text-red a b'",
+        },
+      ],
     },
     {
       options: [{ callee: ["classNames"] }],
@@ -78,9 +79,9 @@ ruleTester.run("sort", rule, {
       output: '<div className={classNames("a b")} />',
       errors: [
         {
-          message: "should equal to 'a b'"
-        }
-      ]
+          message: "should equal to 'a b'",
+        },
+      ],
     },
     {
       options: [{ callee: ["classNames"] }],
@@ -88,12 +89,12 @@ ruleTester.run("sort", rule, {
       output: '<div className={classNames("a b", {"c d": false})} />',
       errors: [
         {
-          message: "should equal to 'a b'"
+          message: "should equal to 'a b'",
         },
         {
-          message: "should equal to 'c d'"
-        }
-      ]
+          message: "should equal to 'c d'",
+        },
+      ],
     },
     {
       options: [{ order: tailwindcss, callee: ["classNames"] }],
@@ -104,9 +105,9 @@ ruleTester.run("sort", rule, {
       errors: [
         {
           message:
-            "should equal to 'flex items-center justify-center rounded-full bg-${color} text-white font-semibold avatar'"
-        }
-      ]
+            "should equal to 'flex items-center justify-center rounded-full bg-${color} text-white font-semibold avatar'",
+        },
+      ],
     },
     {
       code: "<div className={['border m-0', 'shadow flex-auto'].join(' ')} />",
@@ -115,12 +116,12 @@ ruleTester.run("sort", rule, {
       options: [{ order: tailwindcss }],
       errors: [
         {
-          message: "should equal to 'm-0 border'"
+          message: "should equal to 'm-0 border'",
         },
         {
-          message: "should equal to 'flex-auto shadow'"
-        }
-      ]
-    }
-  ]
-});
+          message: "should equal to 'flex-auto shadow'",
+        },
+      ],
+    },
+  ],
+})
