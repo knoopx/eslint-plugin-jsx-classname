@@ -1,14 +1,3 @@
-const baseConfig = {
-  parser: "babel-eslint",
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-}
-
 module.exports = {
   rules: {
     "no-duplicate": require("./lib/rules/no-duplicate"),
@@ -18,7 +7,6 @@ module.exports = {
   },
   configs: {
     recommended: {
-      ...baseConfig,
       rules: {
         "jsx-classname/no-duplicate": ["warn"],
         "jsx-classname/no-empty": ["warn"],
@@ -27,7 +15,6 @@ module.exports = {
       },
     },
     tailwindcss: {
-      ...baseConfig,
       rules: {
         "jsx-classname/sort": [
           "warn",

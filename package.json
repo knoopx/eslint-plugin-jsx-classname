@@ -4,23 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint .",
     "test": "mocha tests/lib/rules/**/*.js"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.25.0",
-    "eslint-config-eslint": "^7.0.0",
-    "eslint-plugin-node": "^11.1.0",
-    "mocha": "^8.3.2"
-  },
-  "peerDependencies": {
-    "eslint": ">=2.0.0"
-  },
-  "engines": {
-    "node": ">=4.0"
   },
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/eslint-parser": "^7.13.14",
+    "eslint": ">=2.0.0",
+    "mocha": "^8.3.2"
+  },
+  "engines": {
+    "node": ">=4.0"
   }
 }
